@@ -11,6 +11,7 @@
 		45E10B592C62057400FC31CD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E10B582C62057400FC31CD /* ContentView.swift */; };
 		45E10B5B2C62057500FC31CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45E10B5A2C62057500FC31CD /* Assets.xcassets */; };
 		45E10B5E2C62057500FC31CD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45E10B5D2C62057500FC31CD /* Preview Assets.xcassets */; };
+		45E10B652C62059100FC31CD /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E10B642C62058800FC31CD /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,8 @@
 		45E10B582C62057400FC31CD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		45E10B5A2C62057500FC31CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45E10B5D2C62057500FC31CD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		45E10B642C62058800FC31CD /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		45E10B662C62099300FC31CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +54,8 @@
 		45E10B552C62057400FC31CD /* LearnUserNotifications */ = {
 			isa = PBXGroup;
 			children = (
+				45E10B662C62099300FC31CD /* Info.plist */,
+				45E10B642C62058800FC31CD /* NotificationManager.swift */,
 				45E10B562C62057400FC31CD /* LearnUserNotificationsApp.swift */,
 				45E10B582C62057400FC31CD /* ContentView.swift */,
 				45E10B5A2C62057500FC31CD /* Assets.xcassets */,
@@ -137,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45E10B652C62059100FC31CD /* NotificationManager.swift in Sources */,
 				45E10B592C62057400FC31CD /* ContentView.swift in Sources */,
 				45E10B572C62057400FC31CD /* LearnUserNotificationsApp.swift in Sources */,
 			);
@@ -275,6 +281,8 @@
 				DEVELOPMENT_TEAM = 8PRWAG4355;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LearnUserNotifications/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +312,8 @@
 				DEVELOPMENT_TEAM = 8PRWAG4355;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LearnUserNotifications/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
