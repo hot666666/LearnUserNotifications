@@ -12,6 +12,7 @@ class NotificationManager: NSObject, ObservableObject {
     private var notificationCenter = UNUserNotificationCenter.current()
     @Published var isAuthorized: Bool = false
     @Published var pendingRequests: [UNNotificationRequest] = []
+    @Published var sheetView: SheetView? = nil
     
     override init() {
         super.init()
@@ -57,11 +58,18 @@ extension NotificationManager {
         content.body = "This is a test notification"
         content.sound = .default
         
+        /// 멀티미디어 파일
+        if let url = Bundle.main.url(forResource: "screenshot", withExtension: "png") {
+            if let attachment = try? UNNotificationAttachment(identifier: "screenshot", url: url) {
+                content.attachments = [attachment]
+            }
+        }
+        
         /// 설정한 카테고리 ID 지정
         content.categoryIdentifier = "ALARM_CATEGORY"
         
         /// 알림에 데이터 추가
-        content.userInfo = ["customDataKey": "someCustomData"]
+        content.userInfo = ["sheetView" : SheetView.type1.rawValue]
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
         
@@ -98,15 +106,15 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
         return [.sound, .banner]
     }
     
-    // foreground가 아닐 때, 알림 창을 누르면 이를 바탕으로 앱에서 수행되는 동작
+    // 알림 창을 누르면 이를 바탕으로 앱에서 수행되는 동작
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
         /// 알림에 포함된 데이터를 userInfo를 통해  처리
         let userInfo = response.notification.request.content.userInfo
-        if let customData = userInfo["customDataKey"] as? String {
-            print("Custom data received: \(customData)")
+        if let sheetViewData = userInfo["sheetView"] as? String {
+            sheetView = SheetView(rawValue: sheetViewData)
         }
 
-        /// response.actionIdentifier를 사용하여 어떤 액션이 선택되었는지 확인한다
+        /// response.actionIdentifier를 사용하여 카테고리의 어떤 액션이 선택되었는지 확인할 수 있다
         switch response.actionIdentifier {
         case UNNotificationDefaultActionIdentifier:
             print("Default action triggered")

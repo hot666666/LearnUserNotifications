@@ -25,6 +25,9 @@ struct ContentView: View {
                         }
                 }
             }
+            .sheet(item: $notificationManager.sheetView) {
+                $0.view()
+            }
             .overlay(alignment: .topTrailing) {
                 moreOptionsView
                     .padding()
@@ -48,6 +51,7 @@ extension ContentView {
                         .foregroundColor(.red)
                 })
                 .disabled(secs <= 1)
+                .opacity(secs == 1 ? 0.5 : 1)
                 
                 Button(action: {
                     Task {
